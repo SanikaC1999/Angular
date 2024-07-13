@@ -1,0 +1,9 @@
+<div class="container">
+    <h1>{{ title }}</h1>
+    <button (click)="onChange()" style="width: 100px;">Toggle</button>
+    <div *ngIf="isVisible">
+      <app-customer-list [customers]="people"></app-customer-list>
+      <!-- <app-filter></app-filter> -->
+    </div>
+  </div>
+  

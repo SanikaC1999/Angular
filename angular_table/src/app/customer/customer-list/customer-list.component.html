@@ -1,0 +1,21 @@
+<app-filter (changed)="filter($event)"></app-filter>
+    <table class="table-container">
+        <thead>
+            <tr>
+                <th (click) = "sort('name')">Name</th>
+                <th (click) = "sort('city')">City</th>
+                <th (click) = "sort('grandTotal')">Grand Total</th>
+                <th (click) = "sort('customerSince')">Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let cust of fileteredCustomer" appHighlight>
+                <td><a>{{cust.name | captilised}}</a></td>
+                <td>{{cust.city | lowercase}}</td>
+                <td>{{cust.grandTotal | currency:'INR':'symbol':'1.2-3'}}</td>
+                <td>{{cust.customerSince | date:'shortDate'}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <p *ngIf="fileteredCustomer.length>0">Total earning: {{customerOrderTotal | number:'1.2-3'}} </p>
+    <p *ngIf="fileteredCustomer">Total Number of Customer: {{fileteredCustomer.length}}</p>
